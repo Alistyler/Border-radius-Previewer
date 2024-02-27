@@ -10,12 +10,19 @@
 <body>
     <div id = "border-radius">
         <h1>Border-Radius Previewer</h1>
-        <img src = "Mountain-Dusk.png" alt = "mountain" title = "background"/>
+        <img id = img src = "Mountain-Dusk.png" alt = "mountain" title = "background"/>
         <input type = "text" value = "Hello World" id = "input"/>
+        
+        <div class = "slidercontainer">
+            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "topLeft"/>
+            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "topRight"/>
+            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "bottomLeft"/>
+            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "bottomRight"/>
+        </div>
 
         <div class="tooltip">
             <button onclick="Submit()" onmouseout="outFunc()">
-                <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+                <span class="tooltiptext" id="tooltip">Copy to clipboard</span>
                 Submit and Copy
             </button>
         </div>
