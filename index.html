@@ -11,14 +11,17 @@
     <div id = "border-radius">
         <h1>Border-Radius Previewer</h1>
         <img id = img src = "Mountain-Dusk.png" alt = "mountain" title = "background"/>
-        <input type = "text" value = "Hello World" id = "input"/>
-        
         <div class = "slidercontainer">
-            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "topLeft"/>
-            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "topRight"/>
-            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "bottomLeft"/>
-            <input type = "range" min = "1" max = "100" value = "50" class = "slider" id = "bottomRight"/>
+            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topLeftX"/>
+            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topLeftY"/>-->
+            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topRightX"/>
+            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topRightY"/>-->
+            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomRightX"/>
+            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomRightY"/>-->
+            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomLeftX"/>
+            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomLeftY"/>-->
         </div>
+        <input type = "text" value = "10% 10% 10% 10%" onchange = "borderRadiusUpdate()" id = "input"/>
 
         <div class="tooltip">
             <button onclick="Submit()" onmouseout="outFunc()">
