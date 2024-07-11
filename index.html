@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,20 +9,29 @@
 </head>
 
 <body>
-    <div id = "border-radius">
+    <div id="border-radius">
         <h1>Border-Radius Previewer</h1>
-        <img id = img src = "Mountain-Dusk.png" alt = "mountain" title = "background"/>
-        <div class = "slidercontainer">
-            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topLeftX"/>
-            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topLeftY"/>-->
-            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topRightX"/>
-            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "topRightY"/>-->
-            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomRightX"/>
-            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomRightY"/>-->
-            <input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomLeftX"/>
-            <!--<input type = "range" min = "0" max = "100" value = "10" class = "slider" id = "bottomLeftY"/>-->
+        <div class="image-container">
+            <img id="img" src="Mountain-Dusk.png" alt="mountain" title="background" />
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="10" class="slider horizontal" id="topLeftX" />
+                <input type="range" min="0" max="100" value="10" class="slider vertical" id="topLeftY" />
+            </div>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="10" class="slider horizontal" id="topRightX" />
+                <input type="range" min="0" max="100" value="10" class="slider vertical" id="topRightY" />
+            </div>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="10" class="slider horizontal" id="bottomRightX" />
+                <input type="range" min="0" max="100" value="10" class="slider vertical" id="bottomRightY" />
+            </div>
+            <div class="slider-container">
+                <input type="range" min="0" max="100" value="10" class="slider horizontal" id="bottomLeftX" />
+                <input type="range" min="0" max="100" value="10" class="slider vertical" id="bottomLeftY" />
+            </div>
         </div>
-        <input type = "text" value = "10% 10% 10% 10%" onchange = "borderRadiusUpdate()" id = "input"/>
+
+        <input type="text" value="10% 10% 10% 10% / 10% 10% 10% 10%" id="input" />
 
         <div class="tooltip">
             <button onclick="Submit()" onmouseout="outFunc()">
@@ -30,6 +40,7 @@
             </button>
         </div>
     </div>
-    <script src = "script.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>

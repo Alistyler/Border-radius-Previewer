@@ -1,114 +1,144 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    background: rgb(101,0,128);
-    background: radial-gradient(circle, rgba(101,0,128,1) 0%, rgba(44,0,64,1) 50%, rgba(6,0,36,1) 100%);
+    background: radial-gradient(circle, rgba(101, 0, 128, 1) 0%, rgba(44, 0, 64, 1) 50%, rgba(6, 0, 36, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 h1 {
-    color:#ffffff;
+    color: #ffffff;
     font-family: monospace;
     font-style: italic;
-    margin-bottom: 100px;
+    margin-bottom: 3vh;
     text-align: center;
     text-decoration: underline;
-    display: table-header-group;
 }
 
 #border-radius {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-    width: 100vw;
-    height: 100vh;
 }
 
 img {
-    border-radius: 10% 10% 10% 10%;
-    border: 2px solid #abad21;
-    background: url("Mountain-Dusk.png");
-    width: auto;
+    border-radius: 10%;
+    border: 0.125rem solid #abad21;
+    width: 100%;
     height: auto;
-    margin-bottom: 10%;
+    margin: 2%;
     filter: drop-shadow(0 0 0.75rem crimson);
 }
 
-#input {
-    margin-top: 100px;
-    Padding-top: 10px;
-    padding-bottom: 10px;
-    padding-left: 75px;
-    padding-right: 75px;
-    text-align: center;
-    background: rgb(20,43,43);
-    background: linear-gradient(0deg, rgba(20,43,43,1) 0%, rgba(39,89,88,1) 100%);
-    color: #ffffff;
-    font-family: monospace;
-    font-weight: bold;
-    font-size: x-large;
-    width: 80%;
+.image-container {
+    position: relative;
+    width: 40vw;
 }
 
-button {
-    margin-top: 10px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    background: rgb(20,43,42);
-    background: linear-gradient(0deg, rgba(20,43,42,1) 0%, rgba(50,53,25,1) 100%);
-    color: #ffffff;
-    font-family: monospace;
-    font-size: large;
-}
-
-.slidecontainer {
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
 }
 
 .slider {
-    -webkit-appearance: none;
-    appearance: none;
     width: 100%;
-    height: 3px;
-    border-radius: 5px;
-    background: #1c7f95;
-    outline: none;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-    visibility: visible;
+    height: auto;
+    background-color: #ccc;
 }
 
-.slider::-webkit-slider-thumb {
-    -webkit-appearance: none;
-    appearance: none;
-    width: 18px;
-    height: 18px;
-    border-radius: 50%;
-    background: #8e04aa;
-    cursor: pointer;
-    visibility: visible;
+.slider.vertical {
+    width: 40%;
+    height: auto;
+    position: absolute;
+    transform: rotate(-90deg);
+    background-color: #ddd;
 }
-  
-.slider::-moz-range-thumb {
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #04AA6D;
-    cursor: pointer;
-    visibility: visible;
+
+#topLeftY {
+    top: 22%;
+    left: -10vw;
+    transform: rotate(90deg);
+}
+
+#topRightY {
+    top: 22%;
+    right: -11vw;
+    transform: rotate(90deg);
+}
+
+#bottomLeftY {
+    bottom: 22%;
+    left: -10vw;
+}
+
+#bottomRightY {
+    bottom: 22%;
+    right: -11vw;
+}
+
+.slider.horizontal {
+    width: 48.5%;
+    height: 5vh;
+    position: absolute;
+}
+
+#topLeftX {
+    top: -2.5vh;
+    left: 1%;
+}
+
+#topRightX {
+    top: -2.5vh;
+    right: 1%;
+    transform: rotate(180deg);
+}
+
+#bottomLeftX {
+    bottom: -2.5vh;
+    left: 1%;
+}
+
+#bottomRightX {
+    bottom: -2.5vh;
+    right: 1%;
+    transform: rotate(180deg);
+}
+
+#input {
+    margin-top: 3vh;
+    padding: 1vh 5vw;
+    text-align: center;
+    background: linear-gradient(0deg, rgba(20, 43, 43, 1) 0%, rgba(39, 89, 88, 1) 100%);
+    color: #ffffff;
+    font-family: monospace;
+    font-weight: bold;
+    font-size: large;
+    width: 70vw;
+}
+
+button {
+    margin-top: 1.5vh;
+    padding: 1vh 5vw;
+    background: linear-gradient(0deg, rgba(20, 43, 42, 1) 0%, rgba(50, 53, 25, 1) 100%);
+    color: #ffffff;
+    font-family: monospace;
+    font-size: medium;
 }
 
 .tooltip {
     position: relative;
     display: inline-block;
 }
-  
+
 .tooltip .tooltiptext {
     visibility: hidden;
     width: 140px;
@@ -125,7 +155,7 @@ button {
     opacity: 0;
     transition: opacity 0.3s;
 }
-  
+
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
@@ -136,7 +166,7 @@ button {
     border-style: solid;
     border-color: #555 transparent transparent transparent;
 }
-  
+
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;

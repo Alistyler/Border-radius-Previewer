@@ -4,51 +4,77 @@ let tooltip = document.getElementById("tooltip");
 let image = document.getElementById("img");
 
 let output = document.getElementsByClassName("slidercontainer");
-let sliderTopLeft = document.getElementById("topLeftX");
-let sliderTopRight = document.getElementById("topRightX");
-let sliderBottomLeft = document.getElementById("bottomLeftX");
-let sliderBottomRight = document.getElementById("bottomRightX");
+let sliderTopLeftX = document.getElementById("topLeftX");
+let sliderTopRightX = document.getElementById("topRightX");
+let sliderBottomLeftX = document.getElementById("bottomLeftX");
+let sliderBottomRightX = document.getElementById("bottomRightX");
 
-output.innerHTML = sliderTopLeft.value;
-output.innerHTML = sliderTopRight.value;
-output.innerHTML = sliderBottomLeft.value;
-output.innerHTML = sliderBottomRight.value;
+let sliderTopLeftY = document.getElementById("topLeftY");
+let sliderTopRightY = document.getElementById("topRightY");
+let sliderBottomLeftY = document.getElementById("bottomLeftY");
+let sliderBottomRightY = document.getElementById("bottomRightY");
 
 function borderRadiusUpdate() {
-  copyText.value = sliderTopLeft.value + "%" + " " +
-                   sliderTopRight.value + "%" + " " +
-                   sliderBottomRight.value + "%" + " " +
-                   sliderBottomLeft.value + "%";
+  let borderRadiusValue =
+    sliderTopLeftX.value + "% " + sliderTopRightX.value + "% " +
+    sliderBottomRightX.value + "% " + sliderBottomLeftX.value + "% / " +
+    sliderTopLeftY.value + "% " + sliderTopRightY.value + "% " +
+    sliderBottomRightY.value + "% " + sliderBottomLeftY.value + "%";
+
+  image.style.borderRadius = borderRadiusValue;
+  copyText.value = borderRadiusValue;
 }
 
-sliderTopLeft.oninput = function() {
-  image.style.borderTopLeftRadius = sliderTopLeft.value + "%";
+sliderTopLeftX.oninput = function () {
   borderRadiusUpdate();
 }
 
-sliderTopRight.oninput = function() {
-  image.style.borderTopRightRadius = sliderTopRight.value + "%";
+sliderTopRightX.oninput = function () {
   borderRadiusUpdate();
 }
 
-sliderBottomRight.oninput = function() {
-  image.style.borderBottomRightRadius = sliderBottomRight.value + "%";
+sliderBottomRightX.oninput = function () {
   borderRadiusUpdate();
 }
 
-sliderBottomLeft.oninput = function() {
-  image.style.borderBottomLeftRadius = sliderBottomLeft.value + "%";
+sliderBottomLeftX.oninput = function () {
   borderRadiusUpdate();
 }
 
-function Submit() {
-  copyText.select();
-  copyText.setSelectionRange(0, 99999);
-  navigator.clipboard.writeText(copyText.value);
-
-  tooltip.innerHTML = "Copied: " + copyText.value;
+sliderTopLeftY.oninput = function () {
+  borderRadiusUpdate();
 }
 
-function outFunc() {
-  tooltip.innerHTML = "Copy to clipboard";
+sliderTopRightY.oninput = function () {
+  borderRadiusUpdate();
+}
+
+sliderBottomRightY.oninput = function () {
+  borderRadiusUpdate();
+}
+
+sliderBottomLeftY.oninput = function () {
+  borderRadiusUpdate();
+}
+
+copyText.oninput = function () {
+  let values = copyText.value.split("/");
+  if (values.length === 2) {
+    let xValues = values[0].trim().split(" ");
+    let yValues = values[1].trim().split(" ");
+
+    if (xValues.length === 4 && yValues.length === 4) {
+      sliderTopLeftX.value = parseInt(xValues[0]);
+      sliderTopRightX.value = parseInt(xValues[1]);
+      sliderBottomRightX.value = parseInt(xValues[2]);
+      sliderBottomLeftX.value = parseInt(xValues[3]);
+
+      sliderTopLeftY.value = parseInt(yValues[0]);
+      sliderTopRightY.value = parseInt(yValues[1]);
+      sliderBottomRightY.value = parseInt(yValues[2]);
+      sliderBottomLeftY.value = parseInt(yValues[3]);
+
+      borderRadiusUpdate();
+    }
+  }
 }
